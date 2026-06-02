@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://www.gstatic.com https://firebasestorage.googleapis.com; script-src 'self' https://www.gstatic.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://firestore.googleapis.com https://identitytoolkit.googleapis.com;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Chat Privado</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div id="marca-agua" class="marca-agua-global"></div>
+
+    <div id="pantalla-login" class="pantalla-login">
+        <h2>Iniciar Sesión</h2>
+        <input type="email" id="login-usuario" placeholder="Correo Electrónico" autocomplete="off">
+        <input type="password" id="login-pass" placeholder="Contraseña">
+        <button id="btn-login">Entrar Seguro</button>
+        <p id="error-login" class="error-texto" style="display: none;"></p>
+        <p class="enlace-cambio">¿No tienes cuenta? <span id="IrARegistro">Regístrate aquí</span></p>
+    </div>
+
+    <div id="pantalla-registro" class="pantalla-login" style="display: none;">
+        <h2>Crear Cuenta Privada</h2>
+        <input type="text" id="reg-usuario" placeholder="Nombre de Usuario (Alias)" autocomplete="off">
+        <input type="email" id="reg-correo" placeholder="Correo Electrónico" autocomplete="off">
+        <input type="password" id="reg-pass" placeholder="Contraseña">
+        
+        <div class="contenedor-sexo">
+            <label for="reg-sexo">Sexo Obligatorio:</label>
+            <select id="reg-sexo">
+                <option value="">-- Selecciona una opción --</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+            </select>
+        </div>
+        
+        <div class="contenedor-privacidad">
+            <input type="checkbox" id="chk-privacidad">
+            <label for="chk-privacidad">Acepto los <a href="politicas.html" target="_blank" rel="noopener noreferrer">Términos</a> y la <a href="politicas.html" target="_blank" rel="noopener noreferrer">Exención de Responsabilidad</a></label>
+        </div>
+        <button id="btn-registrar-guardar">Registrarse y Validar Correo</button>
+        <p class="enlace-cambio">¿Ya tienes cuenta? <span id="IrALogin">Inicia sesión</span></p>
+    </div>
+
+    <div id="pantalla-verificar" class="pantalla-login" style="display: none;">
+        <h2>Validación Obligatoria</h2>
+        <p style="color: #555; font-size: 14px; margin-bottom: 15px;">Hemos enviado un enlace de verificación a tu bandeja de entrada. Por seguridad, debes pulsarlo para activar tu acceso.</p>
+        <button id="btn-confirmar-verificado" class="btn-verificar">Ya pulsé el enlace (Ir al Login)</button>
+        <p id="mensaje-verificar" class="error-texto"></p>
+    </div>
+
+    <div id="pantalla-chat" class="pantalla-chat" style="display: none;">
+        <header class="cabecera-fija">
+            <button id="btn-menu-usuarios" class="btn-menu">👥 Usuarios</button>
+            <div id="nombre-cabecera" class="info-usuario-cabecera"></div>
+            <div class="botones-cabecera">
+                <button id="btn-admin-panel" class="btn-admin" style="display: none;">🛠️ Panel Admin</button>
+                <button id="btn-salir" class="btn-salir">🔒 Salir</button>
+            </div>
+        </header>
+
+        <div id="barra-pestanas" class="barra-pestanas">
+            <button id="pestana-general" class="pestana activa">📢 General</button>
+        </div>
+
+        <div class="cuerpo-chat">
+            <div id="sidebar-overlay" class="sidebar-overlay"></div>
+            
+            <div id="lista-usuarios-sidebar" class="usuarios-sidebar">
+                <h3>Integrantes</h3>
+                <div id="contenedor-usuarios-lista"></div>
+                <div class="zona-usuario-config">
+                    <button id="btn-eliminar-cuenta" class="btn-eliminar-cuenta">⚠️ Destruir mi Cuenta</button>
+                </div>
+            </div>
+
+            <div id="panel-administracion" class="panel-admin-vista" style="display: none;">
+                <h3>Panel de Moderación e Inmunidad</h3>
+                
+                <div class="tarjeta-estadisticas">
+                    <h4>📊 Estadísticas en Tiempo Real (Ciego)</h4>
+                    <p>💬 Mensajes procesados (24h): <span id="est-mensajes">0</span></p>
+                    <p>👥 Demografía: Hombres (<span id="est-hombres" style="color: #075e54;">0</span>) | Mujeres (<span id="est-mujeres" style="color: #c71585;">0</span>)</p>
+                    <p>💽 Servidor libre de basura: <span id="est-storage">100% libre</span></p>
+                </div>
+
+                <div id="lista-usuarios-admin"></div>
+            </div>
+
+            <div class="zona-mensajes no-select">
+                <div id="cartel-aviso" class="aviso-cifrado">🔒 Los mensajes y archivos de este chat privado están cifrados. Ni los administradores pueden leerlos.</div>
+                <div id="contenedor-chat"></div>
+                
+                <div class="area-envio">
+                    <label id="contenedor-clip" for="input-archivo" class="btn-adjuntar" style="display: none;">📎</label>
+                    <input type="file" id="input-archivo" style="display:none;">
+                    <input type="text" id="input-mensaje" placeholder="Escribe un mensaje..." autocomplete="off">
+                    <button id="btn-enviar">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
