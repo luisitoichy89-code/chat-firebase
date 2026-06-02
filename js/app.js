@@ -1,6 +1,5 @@
-
-import { aplicarAntiAutocompletado } from './security.js';
-import { auth, db, storage, signOut } from './firebase.js';
+import { aplicarAntiAutocompletado } from './security1.js';
+import { auth, db, storage, signOut } from './control.js';
 import { collection, onSnapshot, doc, setDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
 import { login, registrar } from './auth.js';
 
