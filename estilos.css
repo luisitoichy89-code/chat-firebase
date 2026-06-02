@@ -1,0 +1,46 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; background-color: #f0f2f5; height: 100vh; width: 100vw; display: flex; flex-direction: column; overflow: hidden; }
+
+/* Cortina Anti-Espionaje */
+.marca-agua-global { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #000; z-index: 99999; }
+.marca-agua-global.activo { display: block; }
+
+/* Formularios */
+.pantalla-login { padding: 20px; text-align: center; background: white; height: 100vh; display: flex; flex-direction: column; justify-content: center; gap: 15px; }
+.pantalla-login input, .pantalla-login select { padding: 12px; border-radius: 8px; border: 1px solid #ccc; width: 100%; }
+.pantalla-login button { background-color: #075e54; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; }
+.contenedor-sexo { text-align: left; font-size: 14px; color: #555; }
+
+/* Clases de Control de Colores de Identidad Nivel Dios */
+.color-creador-rojo { color: #d9534f !important; font-weight: bold; }
+.color-mod-negro { color: #000000 !important; font-weight: bold; }
+.color-fem-rosado { color: #c71585 !important; font-weight: bold; }
+.color-masc-verde { color: #075e54 !important; font-weight: bold; }
+
+/* Entorno de Chat */
+.pantalla-chat { display: flex; flex-direction: column; height: 100vh; background-color: #efeae2; }
+.cabecera-fija { background-color: #075e54; color: white; padding: 10px 15px; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.barra-pestanas { display: flex; gap: 6px; background-color: #ffffff; padding: 8px 12px; border-bottom: 1px solid #e0e0e0; overflow-x: auto; white-space: nowrap; }
+.pestana { background-color: #f0f2f5; border: none; padding: 7px 14px; border-radius: 16px; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
+.pestana.activa { background-color: #075e54; color: white; font-weight: bold; }
+.cerrar-x { font-weight: bold; color: #999; cursor: pointer; }
+.pestana.activa .cerrar-x { color: rgba(255, 255, 255, 0.8); }
+
+/* Tarjeta de Estadísticas de la Aplicación */
+.tarjeta-estadisticas { background-color: #e3f2fd; border: 1px solid #90caf9; padding: 12px; border-radius: 8px; margin-bottom: 15px; font-size: 14px; }
+.tarjeta-estadisticas h4 { color: #0d47a1; margin-bottom: 6px; }
+
+.cuerpo-chat { display: flex; flex: 1; position: relative; overflow: hidden; }
+.zona-mensajes { flex: 1; display: flex; flex-direction: column; height: 100%; }
+.no-select { user-select: none; -webkit-user-select: none; }
+.aviso-cifrado { background-color: #ffeeba; color: #856404; font-size: 12px; padding: 8px; text-align: center; font-weight: bold; }
+#contenedor-chat { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+.area-envio { background-color: #f0f2f5; padding: 8px 12px; display: flex; align-items: center; gap: 10px; border-top: 1px solid #ddd; }
+.btn-adjuntar { font-size: 22px; cursor: pointer; padding: 4px; color: #555; }
+.area-envio input[type="text"] { flex: 1; padding: 10px; border-radius: 20px; border: 1px solid #ccc; }
+.area-envio button { background-color: #075e54; color: white; border: none; padding: 10px 16px; border-radius: 20px; font-weight: bold; }
+
+/* Vista Admin */
+.panel-admin-vista { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #fff; z-index: 22; padding: 15px; display: flex; flex-direction: column; }
+.usuario-admin-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f8f9fa; border-radius: 6px; margin-bottom: 6px; }
+.btn-banear { background: #d9534f; color: white; border: none; padding: 6px; border-radius: 4px; font-weight: bold; }
